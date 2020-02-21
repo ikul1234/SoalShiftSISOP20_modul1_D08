@@ -43,7 +43,14 @@ var2=`cat test2.txt`
 * Sortir secara general dan gunakan awk untuk ngeprint 10 teratas seperti sort -g | awk 'NR <=10  {print $0}'
 ## Soal 2
 ### 2A
-* 
+* #!/bin/bash
+
+head /dev/urandom | tr -dc A-Za-z0-9 | head -c 28 > "$1.txt"
+
+* Hasil dari program diatas menghasilkan password acak denngan 28 karakter hanya berisi huruf dan angka.
+* head/dev/urandom berfungsi untuk mnghasilkan password acak. 
+* A-Za-z0-9 artinya huruf A,B,C,...Z , a,b,c,…,z , 0,1,2,3,..9
+* Dari program yang dibuat Tr -dc berfungsi untuk membandingkan password random dan  akan menghapus selain dari A-Za-z0-9 sepanjang 28 karakter head -c 28 dan akan menyimpan datanya ke dalam $1.txt
 ### 2B
 * 
 ### 2C
