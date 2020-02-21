@@ -27,3 +27,13 @@ var2=`cat test2.txt`
 * Setelah itu buat array dari product name dan tambah setiap profitnya seperti {a[$17] += $21}
 * Lalu print array tersebut dan table yang digunakan seperti {for (i in a) {print a[i],i}}' Sample-Superstore.tsv 
 * Sortir secara general dan gunakan awk untuk ngeprint 10 teratas seperti sort -g | awk 'NR <=10  {print $0}'
+
+### 2A
+#!/bin/bash
+
+head /dev/urandom | tr -dc A-Za-z0-9 | head -c 28 > "$1.txt"
+
+Hasil dari program diatas menghasilkan password acak denngan 28 karakter hanya berisi huruf dan angka.
+head/dev/urandom berfungsi untuk mnghasilkan password acak. 
+A-Za-z0-9 artinya huruf A,B,C,...Z , a,b,c,…,z , 0,1,2,3,..9
+Dari program yang dibuat Tr -dc berfungsi untuk membandingkan password random dan  akan menghapus selain dari A-Za-z0-9 sepanjang 28 karakter head -c 28 dan akan menyimpan datanya ke dalam $1.txt
