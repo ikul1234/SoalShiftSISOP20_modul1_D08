@@ -52,7 +52,8 @@ head /dev/urandom | tr -dc A-Za-z0-9 | head -c 28 > "$1.txt"
 * A-Za-z0-9 artinya huruf A,B,C,...Z , a,b,c,…,z , 0,1,2,3,..9
 * Dari program yang dibuat Tr -dc berfungsi untuk membandingkan password random dan  akan menghapus selain dari A-Za-z0-9 sepanjang 28 karakter head -c 28 dan akan menyimpan datanya ke dalam $1.txt
 ### 2B
-* 
+* Masih belum selesai karena masi bisa menginput argumen angka.
+* $1.txt artinya meng-input argumen
 ### 2C
 * 
 ### 2D
