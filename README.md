@@ -66,7 +66,7 @@ head /dev/urandom | tr -dc A-Za-z0-9 | head -c 28 > $filename.txt
 
 
 ### 2D
-* 
+* Pada proses deksripsi penjelasannya sama seperti proses enkripsi , perbedaannya hanya pada $(echo $n_filename | tr '[b-za-aB-ZA-A]' '[a-zA-Z]') yang artinya perubahan hurufnya diubah dari b menjadi a atau dari c diubah menjadi d.
 ## Soal 3
 ### 3A
 * Pada Nomor 3A saya membuat variabel untuk nama file, nama direktori, hitungan download, dan nama file lanjutan seperti nama="pdkt_kusuma_"
