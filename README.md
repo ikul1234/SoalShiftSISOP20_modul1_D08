@@ -52,10 +52,38 @@ head /dev/urandom | tr -dc A-Za-z0-9 | head -c 28 > "$1.txt"
 * A-Za-z0-9 artinya huruf A,B,C,...Z , a,b,c,…,z , 0,1,2,3,..9
 * Dari program yang dibuat Tr -dc berfungsi untuk membandingkan password random dan  akan menghapus selain dari A-Za-z0-9 sepanjang 28 karakter head -c 28 dan akan menyimpan datanya ke dalam $1.txt
 ### 2B
-* Masih belum selesai karena masi bisa menginput argumen angka.
-* $1.txt artinya meng-input argumen
+#!/bin/bash
+filename=$(echo $1 | tr -dc A-Za-z)
+head /dev/urandom | tr -dc A-Za-z0-9 | head -c 28 > $filename.txt
+
+* Mengambil argumen dan mengubahnya ke dalam alphabet saja yang ditandai dengan (tr -dc A-Za-z) dan disimpan di dalam variabel filename
 ### 2C
 * 
+#!/bin/bash
+
+filename=$1
+n_filename=$(echo $filename | cut -f 1 -d '.')
+jam=$(stat -c %w $filename | date '+%H' -r $filename) 
+
+
+while [ "$jam" -gt 0 ]
+do 
+	n_filename=$(echo $n_filename | tr '[a-zA-Z]' '[b-za-aB-ZA-A]')
+	jam=$(($jam - 1))
+done
+
+mv "$filename" "$n_filename.txt"
+
+* filename=$1 , mengambil argumen dan menyimpan di variabel filename
+* n_filename=$(echo $filename | cut -f 1 -d '.') , mengambil isi dari var filename dan memotong isi filename sampai titik dan setelahnya kemudian disimpan di variable n_filename
+* stat -c %w $filename artinya mengambil timestamp dari file yang telah dibuat , date '+%H' -r $filename artinya mengambil jamnya saja pada filename kemudian disimpan di variabel jam
+* $(echo $n_filename | tr '[a-zA-Z]' '[b-za-aB-ZA-A]')
+ jam=$(($jam - 1))
+ 
+Akan melakukan looping saat kondisi memenuhi 'nilai jam lebih besar dari nol' dan akan menggeser hurufnya sesuai dengan jam pembuatan file 
+*mv "$filename" "$n_filename.txt" artinya memindahkan isi dari filename ke n_filename
+
+
 ### 2D
 * 
 ## Soal 3
