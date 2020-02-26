@@ -61,10 +61,10 @@ head /dev/urandom | tr -dc A-Za-z0-9 | head -c 28 > $filename.txt
 * filename=$1 , mengambil argumen dan menyimpan di variabel filename
 * n_filename=$(echo $filename | cut -f 1 -d '.') , mengambil isi dari var filename dan memotong isi filename sampai titik dan setelahnya kemudian disimpan di variable n_filename
 * stat -c %w $filename artinya mengambil timestamp dari file yang telah dibuat , date '+%H' -r $filename artinya mengambil jamnya saja pada filename kemudian disimpan di variabel jam
-* $(echo $n_filename | tr '[a-zA-Z]' '[b-za-aB-ZA-A]')
+ $(echo $n_filename | tr '[a-zA-Z]' '[b-za-aB-ZA-A]')
  jam=$(($jam - 1))
  
-Akan melakukan looping saat kondisi memenuhi 'nilai jam lebih besar dari nol' dan akan menggeser hurufnya sesuai dengan jam pembuatan file 
+* Akan melakukan looping saat kondisi memenuhi 'nilai jam lebih besar dari nol' dan akan menggeser hurufnya sesuai dengan jam pembuatan file 
 *mv "$filename" "$n_filename.txt" artinya memindahkan isi dari filename ke n_filename
 
 
